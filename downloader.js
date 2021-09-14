@@ -34,8 +34,11 @@ module.exports = {
 
     // save m4a file to folder
     const download = await ytdl(url).pipe(
-      fs.createWriteStream(`./downloaded/${filename[0]}/${i}.m4a`)
+      fs.createWriteStream(`./downloaded/${filename[0]}/${filename[0]}.m4a`)
     );
+
+    console.log(filename[0] + " Download Complete !");
+
     return filename[0];
   },
 };

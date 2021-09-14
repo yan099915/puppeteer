@@ -1,13 +1,13 @@
 const puppeteer = require("puppeteer");
 const application = require("./downloader");
+const channel =
+  "https://www.youtube.com/c/RoyaltyFreeMusicNoCopyrightMusic/videos";
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
-  await page.goto(
-    "https://www.youtube.com/c/RoyaltyFreeMusicNoCopyrightMusic/videos"
-  );
+  await page.goto(channel);
   await page.evaluate((_) => {
     window.scrollBy(1, window.innerHeight);
   });
